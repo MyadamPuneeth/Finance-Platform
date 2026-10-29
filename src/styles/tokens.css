@@ -1,24 +1,27 @@
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
 
-  --color-bg: #f7f8fa;
+  --color-bg: #f1f4f9;
   --color-surface: #ffffff;
-  --color-border: #e2e5ea;
-  --color-text: #1a1d23;
-  --color-text-muted: #5b6270;
+  --color-surface-raised: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-text: #0f172a;
+  --color-text-muted: #55627a;
 
-  --color-primary: #2f6fed;
+  --color-primary: #0d9488;
   --color-primary-contrast: #ffffff;
+  --color-header-from: #0f172a;
+  --color-header-to: #134e4a;
 
-  --color-income: #1f9d55;
-  --color-expense: #d64545;
+  --color-income: #15803d;
+  --color-expense: #dc2626;
 
-  --color-ok: #1f9d55;
-  --color-ok-bg: #e7f7ee;
-  --color-warning: #b9770e;
-  --color-warning-bg: #fdf3e0;
-  --color-exceeded: #c0392b;
-  --color-exceeded-bg: #fdeaea;
+  --color-ok: #15803d;
+  --color-ok-bg: #dcfce7;
+  --color-warning: #a16207;
+  --color-warning-bg: #fef3c7;
+  --color-exceeded: #b91c1c;
+  --color-exceeded-bg: #fee2e2;
 
   --space-1: 4px;
   --space-2: 8px;
@@ -27,16 +30,45 @@
   --space-5: 24px;
   --space-6: 32px;
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
 
-  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-size-sm: 0.8125rem;
   --font-size-md: 0.9375rem;
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.5rem;
 
-  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
-  --shadow-md: 0 4px 12px rgba(16, 24, 40, 0.08);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0b1120;
+    --color-surface: #151e32;
+    --color-surface-raised: #1c2740;
+    --color-border: #263350;
+    --color-text: #f1f5f9;
+    --color-text-muted: #9aa8c0;
+
+    --color-primary: #2dd4bf;
+    --color-primary-contrast: #042f2e;
+    --color-header-from: #0b1120;
+    --color-header-to: #0f3d3a;
+
+    --color-income: #4ade80;
+    --color-expense: #f87171;
+
+    --color-ok: #4ade80;
+    --color-ok-bg: #12301f;
+    --color-warning: #fbbf24;
+    --color-warning-bg: #3a2c0a;
+    --color-exceeded: #f87171;
+    --color-exceeded-bg: #3d1717;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
 }
