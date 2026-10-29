@@ -1,54 +1,169 @@
 .page {
   display: flex;
   flex-direction: column;
+  gap: var(--space-5);
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
   gap: var(--space-4);
 }
 
-.summaryCard {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-5);
-  padding: var(--space-4);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-}
-
-.summaryItem {
+.headerText {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
+  min-width: 0;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-md);
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--space-4);
+}
+
+.kpi {
+  --kpi-color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--kpi-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.kpiIncome {
+  --kpi-color: var(--color-income);
+}
+
+.kpiExpense {
+  --kpi-color: var(--color-expense);
 }
 
 .label {
   font-size: var(--font-size-sm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--color-text-muted);
 }
 
-.income {
-  color: var(--color-income);
-  font-weight: 600;
-  font-size: var(--font-size-xl);
+.value {
+  font-family: var(--font-display);
+  font-size: var(--font-size-hero);
+  line-height: 1.1;
+  color: var(--kpi-color);
   font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
 }
 
-.expense {
-  color: var(--color-expense);
-  font-weight: 600;
-  font-size: var(--font-size-xl);
-  font-variant-numeric: tabular-nums;
-}
-
-.topList {
+.card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
-  padding-left: var(--space-5);
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  min-width: 0;
+}
+
+.cardHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.barRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2) var(--space-3);
+  align-items: baseline;
+}
+
+.barName {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.barAmount {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-md);
+  font-variant-numeric: tabular-nums;
+}
+
+.track {
+  grid-column: 1 / -1;
+  height: 0.625rem;
+  background: var(--color-surface-raised);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-sm);
+  transition: width 0.4s ease;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
+}
+
+.primaryBtn {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  border-color: var(--color-primary);
+}
+
+.empty {
+  margin: 0;
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.card .empty {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill {
+    transition: none;
+  }
 }

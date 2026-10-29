@@ -10,6 +10,15 @@ import styles from './TransactionsPage.module.css';
 type TypeFilter = 'All' | TransactionType;
 type CategoryFilter = 'All' | Category;
 
+function Header() {
+  return (
+    <header className={styles.header}>
+      <h2>Transactions</h2>
+      <p className={styles.subtitle}>Browse, filter and recategorize everything you have imported.</p>
+    </header>
+  );
+}
+
 export function TransactionsPage() {
   const { transactions, loading, updateCategory, deleteTransaction } = useTransactions();
   const [category, setCategory] = useState<CategoryFilter>('All');
@@ -44,15 +53,17 @@ export function TransactionsPage() {
   if (loading) {
     return (
       <div className={styles.page}>
-        <h2>Transactions</h2>
-        <p>Loading transactions…</p>
+        <Header />
+        <p role="status" className={styles.subtitle}>
+          Loading transactions…
+        </p>
       </div>
     );
   }
 
   return (
     <div className={styles.page}>
-      <h2>Transactions</h2>
+      <Header />
       <form className={styles.filters} role="search" aria-label="Filter transactions">
         <div className={styles.field}>
           <label htmlFor="filter-category">Category</label>
@@ -107,7 +118,7 @@ export function TransactionsPage() {
             align: 'right',
             render: (t) => (
               <span className={t.type === 'income' ? styles.income : styles.expense}>
-                {t.type === 'expense' ? '-' : ''}
+                {t.type === 'expense' ? '−' : '+'}
                 {formatCurrency(t.amount)}
               </span>
             ),
@@ -133,10 +144,11 @@ export function TransactionsPage() {
               <button
                 type="button"
                 className={styles.deleteButton}
+                aria-label={`Delete transaction ${t.description}`}
                 onClick={() => handleDelete(t.id)}
                 disabled={deletingId === t.id}
               >
-                {deletingId === t.id ? 'Deleting…' : 'Delete transaction'}
+                {deletingId === t.id ? 'Deleting…' : 'Delete'}
               </button>
             ),
           },
@@ -145,7 +157,7 @@ export function TransactionsPage() {
         getRowKey={(t) => t.id}
         emptyMessage={
           transactions.length === 0
-            ? 'No transactions yet. Import a CSV to get started.'
+            ? 'No transactions yet. Go to Import and upload a CSV to get started.'
             : 'No transactions match your filters.'
         }
       />

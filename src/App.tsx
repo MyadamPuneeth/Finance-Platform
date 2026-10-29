@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
+import { BudgetsIcon, ImportIcon, SummaryIcon, TransactionsIcon, TrendsIcon } from './components/Layout/icons'
 import { AppShell } from './components/Layout/AppShell'
 import { ImportPage } from './pages/Import/ImportPage'
 import { TransactionsPage } from './pages/Transactions/TransactionsPage'
@@ -8,12 +9,12 @@ import { MonthlySummaryPage } from './pages/MonthlySummary/MonthlySummaryPage'
 
 type ViewKey = 'import' | 'transactions' | 'budgets' | 'trends' | 'summary'
 
-const VIEWS: { key: ViewKey; label: string }[] = [
-  { key: 'import', label: 'Import' },
-  { key: 'transactions', label: 'Transactions' },
-  { key: 'budgets', label: 'Budgets' },
-  { key: 'trends', label: 'Trends' },
-  { key: 'summary', label: 'Monthly summary' },
+const VIEWS: { key: ViewKey; label: string; icon: ReactNode }[] = [
+  { key: 'import', icon: <ImportIcon />, label: 'Import' },
+  { key: 'transactions', icon: <TransactionsIcon />, label: 'Transactions' },
+  { key: 'budgets', icon: <BudgetsIcon />, label: 'Budgets' },
+  { key: 'trends', icon: <TrendsIcon />, label: 'Trends' },
+  { key: 'summary', icon: <SummaryIcon />, label: 'Monthly summary' },
 ]
 
 function App() {
